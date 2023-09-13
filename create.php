@@ -26,7 +26,7 @@ if (!empty($_POST)) {
 <?=template_header('Create')?>
 
 <div class="content update">
-	<h2>Create Contact</h2>
+	<h2>Create to Database</h2>
     <form action="create.php" method="post">
         <label for="id">ID</label>
         <label for="nama">Nama</label>
