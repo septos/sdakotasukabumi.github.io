@@ -11,9 +11,10 @@ if (isset($_GET['id'])) {
         $email = isset($_POST['email']) ? $_POST['email'] : '';
         $notelp = isset($_POST['notelp']) ? $_POST['notelp'] : '';
         $pekerjaan = isset($_POST['pekerjaan']) ? $_POST['pekerjaan'] : '';
-        
+        $tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : '';
+		
         // Update the record
-        $stmt = $pdo->prepare('UPDATE kontak SET id = ?, nama = ?, email = ?, notelp = ?, pekerjaan = ? WHERE id = ?');
+        $stmt = $pdo->prepare('UPDATE kontak SET id = ?, nama = ?, email = ?, notelp = ?, pekerjaan = ?, tanggal = ? WHERE id = ?');
         $stmt->execute([$id, $nama, $email, $notelp, $pekerjaan, $_GET['id']]);
         $msg = 'Updated Successfully!';
     }
@@ -46,6 +47,9 @@ if (isset($_GET['id'])) {
         <input type="text" name="notelp" value="<?=$contact['notelp']?>" id="notelp">
         <label for="pekerjaan">Pekerjaan</label>
         <input type="text" name="pekerjaan" value="<?=$contact['pekerjaan']?>" id="title">
+        <input type="submit" value="Update">
+        <label for="tanggal">Tanggal</label>
+        <input type="date" name="tanggal" value="<?=$contact['tanggal']?>" id="tanggal">
         <input type="submit" value="Update">
     </form>
     <?php if ($msg): ?>

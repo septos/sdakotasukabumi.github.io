@@ -35,6 +35,7 @@ $num_contacts = $pdo->query('SELECT COUNT(*) FROM kontak')->fetchColumn();
                 <td>Email</td>
                 <td>No. Telp</td>
                 <td>Pekerjaan</td>
+                <td>Tanggal</td>
                 <td></td>
             </tr>
         </thead>
@@ -46,6 +47,7 @@ $num_contacts = $pdo->query('SELECT COUNT(*) FROM kontak')->fetchColumn();
                 <td><?=$contact['email']?></td>
                 <td><?=$contact['notelp']?></td>
                 <td><?=$contact['pekerjaan']?></td>
+				<td><?=$contact['tanggal']?></td>
                 <td class="actions">
                     <a href="update.php?id=<?=$contact['id']?>" class="edit"><i class="fas fa-pen fa-xs"></i></a>
                     <a href="delete.php?id=<?=$contact['id']?>" class="trash"><i class="fas fa-trash fa-xs"></i></a>

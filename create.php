@@ -12,10 +12,11 @@ if (!empty($_POST)) {
     $email = isset($_POST['email']) ? $_POST['email'] : '';
     $notelp = isset($_POST['notelp']) ? $_POST['notelp'] : '';
     $pekerjaan = isset($_POST['pekerjaan']) ? $_POST['pekerjaan'] : '';
+	$tanggal = isset($_POST['tanggal']) ? $_POST['tanggal'] : '';
 
     // Insert new record into the contacts table
-    $stmt = $pdo->prepare('INSERT INTO kontak VALUES (?, ?, ?, ?, ?)');
-    $stmt->execute([$id, $nama, $email, $notelp, $pekerjaan]);
+    $stmt = $pdo->prepare('INSERT INTO kontak VALUES (?, ?, ?, ?, ?, ?)');
+    $stmt->execute([$id, $nama, $email, $notelp, $pekerjaan, $tanggal]);
     // Output message
     $msg = 'Created Successfully!';
 }
@@ -37,6 +38,9 @@ if (!empty($_POST)) {
         <input type="text" name="notelp" id="notelp">
         <label for="pekerjaan">Pekerjaan</label>
         <input type="text" name="pekerjaan" id="pekerjaan">
+        <input type="submit" value="Create">
+		<label for="tanggal">Tanggal</label>
+        <input type="date" name="tanggal" id="tanggal">
         <input type="submit" value="Create">
     </form>
     <?php if ($msg): ?>
